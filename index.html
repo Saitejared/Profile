@@ -1,0 +1,1365 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <!--boxicons link-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<style>
+     *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Rubik', sans-serif;
+        list-style: none;
+        text-decoration: none;
+     }
+     :root{
+        --bg-color:#1f1f21;
+        --text-color:#fff;
+        --main-color:#ffae00;
+
+        --big-font: 7rem;
+        --p-font:1.1rem;
+    }
+    body{
+        background: var(--bg-color);
+        color: var(--text-color);
+        overflow-x:hidden;
+    }
+    header{
+        position: fixed;
+        top:0;
+        right:0;
+        width: 100%;
+        z-index :1000;
+        display: flex;
+        align-items: center;
+        justify-content:space-between;
+        padding: 32px 15%;
+        background: transparent;
+        transition: all ease .45s;
+    }
+    .logo{
+        color: var(--text-color);
+        font-size: 41px;
+        font-weight: 600;
+
+    }
+    .logo span{
+        color:var(--main-color)
+    }
+    .navbar{
+        display:flex
+    }
+    .navbar a{
+        font-size: var(--p-font);
+        font-weight: 500;
+        color: var(--text-color);
+        margin: 0 25px;
+        transition: all ease .50s;
+    }
+    .navbar a:hover{
+        color: var(--main-color);
+    }
+    .navbar a:active{
+        color: var(--main-color);
+    }
+    .menu-btn {
+    background: linear-gradient(130.08deg, #383528 0%, #191919 100%);
+    box-shadow: 0px 20px 40px #00000070;
+    border: 1px solid #3b3b3b;
+    padding: 10px 20px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+    #menu-icon{
+        font-size: 28px;
+        margin-left: 10px;
+        z-index: 6;
+    }
+    section{
+        padding:  0 15%;
+    }
+    .home{
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap:30px;
+    }
+    .home-img{
+        width: 730px;
+        height: 730px;
+        margin-right: 30px;
+    }
+    .home-img img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .home-text span{
+        padding: 5px 25px;
+        background: linear-gradient(130.08deg, #383528 0%, #191919 100%);
+        box-shadow: 0px 20px 40px #00000070;
+        border: 1px solid #3b3b3b;
+        border-radius: 100px;
+        color: var(--text-color);
+        font-weight:700;
+        font-size: 15px;
+        text-transform: uppercase;
+        margin-left: 30px;
+    }
+    .home-text h1{
+        font-size: 50px;
+        font-weight: bold;
+        margin: 23px 0;
+        padding-left: 30px; /* Move h1 slightly to the right */
+    }
+    .home-text h4{
+        
+        margin: 23px 0;
+        padding-left: 30px; /* Move h1 slightly to the right */
+    }
+    .home-text p{
+        font-size: var(--p-font);
+        font-weight: 400;
+        color: #c3c3c3;
+        line-height:30px;
+        margin-bottom: 30px;
+        padding-left: 30px; /* Move p slightly to the right */
+    }
+    .btn{
+        display: inline-block;
+        padding: 14px 34px;
+        background: var(--main-color);
+        color:var(--text-color);
+        border:2px solid var(--main-color);
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: all 0.6s ease-in-out;
+        margin-left: 30px;
+    }
+    .btn:hover{
+      transform: translateY(-5px);
+      background: transparent;
+      color:var(--main-color);
+    }
+    .two{
+        background: #141414; ;
+        border: 2px solid #141414;
+        color:var(--text-color);
+        margin-left: 25px;
+    }
+    .two:hover{
+        color:#141414;
+        background: var(--text-color);
+        border:2px solid var(--text-color);
+    }
+    
+
+    .button-container {
+    display: flex;
+    gap: 5px; /* Reduce the gap between the buttons */
+    margin-bottom: 5px; /* Reduce the bottom margin to bring buttons closer to social icons */
+    justify-content: flex-start; /* Align buttons to the left */
+    padding-left: 5%;
+     /* Move the buttons slightly to the left */
+}
+
+.button-container button {
+    padding: 10px 20px; /* Adjust padding for the buttons */
+}
+
+.share {
+    position: flex; /* Ensure the section is flex for responsiveness */
+    display: flex;
+    align-items: center;
+    margin-top: -150px; /* Remove top margin to bring the social icons closer to the buttons */
+    justify-content: flex-start; /* Align social icons to the left */
+    padding-left: 5%; /* Move the social icons to the left, aligned with buttons */
+}
+
+.social {
+    display: flex; /* Align social icons in a row */
+    gap: 5px; /* Reduce the gap between the social icons */
+}
+
+.social i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    width: 45px;
+    background: linear-gradient(130.08deg, #383528 0%, #191919 100%);
+    box-shadow: 0px 20px 40px #00000070;
+    border: 1px solid #3b3b3b;
+    border-radius: 50%;
+    color: var(--text-color);
+    font-size: 20px;
+    margin: 0 5px; /* Reduce space between icons */
+    transition: all 0.6s ease-in-out;
+}
+
+.social i:hover {
+    transform: translateY(-10px);
+}
+
+@media (max-width: 768px) {
+    .button-container, .share {
+        flex-direction: column;
+        align-items: center;
+        padding-left: 0; /* Remove left padding for smaller screens */
+    }
+    
+    .share {
+        margin-top: 30px;
+        order: 2; /* Ensure the share section comes after buttons */
+        padding-left: 60px;
+    }
+    
+    .button-container {
+        margin-bottom: 5px; /* Reduce space between buttons and social icons */
+        order: 1;
+    }
+
+    .social {
+        justify-content: center; /* Center icons under text */
+    }
+
+    .social i {
+        margin: 5px 0; /* Space icons vertically */
+        
+    }
+}
+
+
+/* Container styling */
+.about {
+    display: flex; /* Use flexbox for layout */
+    justify-content: flex-start; /* Align content to the left */
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 2rem; /* Add padding to left and right */
+    padding-bottom: 6rem;
+}
+
+/* Animation for the image */
+.about-img img {
+    padding-bottom: 20%;
+    max-width: 350px;
+    height: auto;
+    width: 100%;
+    border: 8px solid transparent; /* Ensure border is visible */
+    padding-left: 20px;
+    margin: 0 1rem;
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
+}
+
+.about-img img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Text styling */
+.about-text {
+    text-align: left; /* Align text to the left */
+    margin: 0 1rem;
+    opacity: 0; /* Start with hidden text */
+    animation: fadeIn 1s forwards; /* Fade-in animation */
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px); /* Slide in from left */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Heading styling */
+.about-text h2 {
+    font-size: 60px;
+    margin: 0; /* Ensure no extra margin affects layout */
+}
+
+/* Heading span styling */
+.about-text h2 span {
+    color: #ffae00;
+}
+
+/* Subheading styling */
+.about-text h4 {
+    font-size: 29px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.7;
+    margin: 15px 0 30px;
+}
+
+/* Paragraph styling */
+.about-text p {
+    color: aliceblue;
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 4rem;
+}
+
+
+.btn-box {
+    display: inline-block;
+    padding: 14px 40px; /* Increased width */
+    background: var(--main-color);
+    color: var(--text-color);
+    border: 2px solid var(--main-color);
+    font-size: 16px;
+    font-weight: 200;
+    border-radius: 8px;
+    transition: all 0.6s ease-in-out;
+    margin-left: 10px; /* Adjust this value to move further left */
+    margin-right: 0; /* Ensure no right margin */
+    margin-top: 20px; /* Space above the button */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-box:hover {
+    transform: translateY(-5px);
+    background: transparent;
+    color: var(--main-color);
+    
+    transform: scale(1.1);
+}
+
+#services{
+    color: aliceblue;
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom : 2rem;
+
+}
+.sub-title{
+    text-align: center;
+    font-size: 60px;
+    padding-bottom: 70px;
+}
+.sub-title span{
+    color:#ffae00;
+}
+.container{
+    padding: 90px;
+}
+.services-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(259px,1fr));
+    grid-gap:40px;
+    margin-top: 50px;
+}
+.services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(259px, 1fr));
+    grid-gap: 40px;
+    margin-top: 58px;
+    padding: 40px;
+    background-color: transparent;
+}
+
+.services-list div {
+    border: 1px solid transparent; /* Adjust as needed */
+    border-radius: 20px;
+    transition: background 0.65s, transform 0.55s;
+    box-shadow: 1px 1px 20px #ffae00, 1px 1px 40px #005368f7;
+    padding: 20px; /* Added padding for content inside each div */
+}
+
+.services-list div i {
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+.services-list div h2 {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.services-list div p {
+    font-size: 13px;
+    font-weight: 400; /* Adjusted weight for readability */
+    margin-bottom: 15px; /* Added margin for spacing */
+}
+.services-items:hover{
+    transform: scale(1.02);
+}
+.read {
+    display: inline-block;
+    margin: 0 20px 20px;
+    padding: 10px 20px;
+    background-color: #ffae00; /* Button background color */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.read:hover {
+    opacity: 1;
+   
+    transform: scale(1.05);
+}
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .services-list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust grid for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .services-list {
+        grid-template-columns: 1fr; /* One column per row for mobile devices */
+        grid-gap: 20px; /* Reduced spacing between items */
+        padding: 20px; /* Adjusted padding */
+    }
+
+    .container {
+        padding: 60px; /* Adjust padding for smaller screens */
+    }
+
+    .sub-title {
+        font-size: 40px; /* Reduced font size for smaller screens */
+        padding-bottom: 40px; /* Adjusted padding */
+    }
+
+    .services-list div {
+        padding: 15px; /* Adjusted padding for smaller screens */
+    }
+
+    .services-list div i {
+        font-size: 40px; /* Reduced icon size */
+    }
+
+    .services-list div h2 {
+        font-size: 24px; /* Reduced font size */
+    }
+
+    .services-list div p {
+        font-size: 12px; /* Reduced font size */
+    }
+}
+#projects {
+    color: aliceblue;
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 4rem;
+    display: flex;
+}
+
+.sub-title {
+    text-align: center;
+    font-size: 60px;
+    padding-bottom: 70px;
+}
+
+.sub-title span {
+    color: #ffae00;
+}
+
+.container {
+    padding: 90px;
+}
+
+/* Ensures three columns per row */
+.projects-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns per row */
+    gap: 50px; /* Adjusted for spacing between items */
+    margin-top: 50px;
+    background-color: transparent;
+}
+
+/* Individual project item styling */
+.project-item {
+    border: 1px solid transparent; /* Adjust as needed */
+    border-radius: 20px;
+    transition: background 0.65s, transform 0.55s;
+    box-shadow: 1px 1px 20px #ffae00;
+    padding: 60px; /* Added padding for content inside each div */
+    text-align: center; /* Center align text inside each item */
+}
+
+.project-item img {
+    width: 100%; /* Ensure the image fits the container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.project-item h3 {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.project-item p {
+    font-size: 13px;
+    font-weight: 1000; /* Adjusted weight for readability */
+    margin-bottom: 15px; /* Added margin for spacing */
+}
+
+.project-item:hover {
+    transform: scale(1.02); /* Slight zoom effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect on hover */
+}
+
+.read {
+    display: inline-block;
+    margin: 0 20px 20px;
+    padding: 10px 20px;
+    background-color: #ffae00; /* Button background color */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.read:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.project-item:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect on hover */
+}
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .projects-list {
+        grid-template-columns: repeat(2, 1fr); /* Two columns per row for tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-list {
+        grid-template-columns: 1fr; /* One column per row for mobile devices */
+        gap: 20px; /* Reduced spacing between items */
+    }
+
+    .container {
+        padding: 60px; /* Adjust padding for smaller screens */
+    }
+
+    .sub-title {
+        font-size: 40px; /* Reduced font size for smaller screens */
+        padding-bottom: 40px; /* Adjusted padding */
+    }
+
+    .project-item {
+        padding: 30px; /* Adjusted padding for smaller screens */
+    }
+
+    .project-item h3 {
+        font-size: 24px; /* Reduced font size */
+    }
+
+    .project-item p {
+        font-size: 12px; /* Reduced font size */
+    }
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+/* Container for Skills */
+.container1 {
+    width: 600px;
+    height: 500px;
+    padding: 75px 90px;
+    margin-left: 120px;
+   
+}
+.sub-title{
+    text-align: center;
+    font-size: 60px;
+    padding-bottom: 70px;
+}
+.sub-title span{
+    color:#ffae00;
+}
+/* Heading Styles */
+.heading2 {
+    
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-thickness: 5px;
+    margin-bottom: 50px;
+}
+
+/* Technical Skills Section */
+.bar {
+    font-size: 23px;
+}
+
+.technical-bars .bar {
+    margin-top: 40px;
+}
+
+.technical-bars .bar:first-child {
+    margin-top: 0;
+}
+
+.technical-bars .bar:last-child {
+    margin-bottom: 0;
+}
+
+/* Info for Technical Skills */
+.technical-bars .bar.info {
+    margin-bottom: 5px;
+}
+.technical-bars .bar.info span {
+    animation: showText 0.56s linear forwards;
+    font-size: 17px;
+    font-weight: 500;
+    opacity: 1;
+}
+
+/* Progress Line Styles */
+.technical-bars .bar .progress-line {
+    position: relative;
+    border-radius: 10px;
+    width: 100%;
+    height: 5px;
+    background-color: #000000;
+    animation: animate 2s cubic-bezier(1, 0, 0.5, 1) forwards;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.technical-bars .bar .progress-line span {
+    height: 100%;
+    background-color: #4caf50;
+    position: absolute;
+    border-radius: 10px;
+    transform: scaleX(0);
+    transform-origin: left;
+    display: block;
+    animation: animate 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+/* Specific Progress Bar Widths */
+.technical-bars .progress-line.html span {
+    width: 90%;
+}
+
+.technical-bars .progress-line.css span {
+    width: 80%;
+}
+
+.technical-bars .progress-line.javascript span {
+    width: 75%;
+}
+
+.technical-bars .progress-line.java span {
+    width: 85%;
+}
+
+.technical-bars .progress-line.react span {
+    width: 70%;
+}
+
+/* Radial Bars for Professional Skills */
+.radial-bars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.radial-bar {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+}
+
+.radial-bar svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.progress-bar {
+    fill: none;
+    stroke-width: 15;
+    stroke: #ddd;
+}
+
+/* Radial Path Colors and Animations */
+.path {
+    fill: none;
+    stroke-width: 15;
+    stroke-linecap: round;
+    stroke-dasharray: 502;
+    stroke-dashoffset: 502;
+    transition: stroke-dashoffset 2s ease;
+}
+
+.path-1 {
+    stroke: #4caf50;
+    stroke-dashoffset: calc(502 - (502 * 90) / 100);
+}
+
+.path-2 {
+    stroke: #2196f3;
+    stroke-dashoffset: calc(502 - (502 * 65) / 100);
+}
+
+.path-3 {
+    stroke: #f44336;
+    stroke-dashoffset: calc(502 - (502 * 80) / 100);
+}
+
+.path-4 {
+    stroke: #ff9800;
+    stroke-dashoffset: calc(502 - (502 * 85) / 100);
+}
+
+/* Percentage Text in Radial Bars */
+.percentage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* Description Text Below Radial Bars */
+.text {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+/* Animations */
+@keyframes showText {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes animate {
+    100% {
+        transform: scaleX(1);
+    }
+}
+/* Contact Section Styles */
+/* Contact Section Styles */
+#contacts {
+    padding: 60px 0;
+    background-color: #1f1f21;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-left: 400px;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center; /* Center the items horizontally */
+    gap: 20px; /* Adjust spacing between items */
+    margin-bottom: 40px;
+    max-width: 1000px; /* Adjust based on your design needs */
+    width: 100%;
+}
+
+.contact-item {
+    text-align: center;
+    color: var(--text-color);
+}
+
+.contact-item i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: var(--main-color);
+}
+
+.contact-item h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.contact-item p {
+    font-size: 18px;
+    font-weight: 400;
+    color: #c3c3c3;
+}
+
+.contact-item a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.contact-item a:hover {
+    color: var(--main-color);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the form elements horizontally */
+    gap: 20px;
+    max-width: 500px; /* Adjust based on your design needs */
+    width: 100%;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    max-width: 100%; /* Ensure inputs do not exceed their container */
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+.contact-form button {
+    align-self: center; /* Center the button horizontally */
+    padding: 14px 34px;
+    background: var(--main-color);
+    color: var(--text-color);
+    border: 2px solid var(--main-color);
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.6s ease-in-out;
+}
+
+.contact-form button:hover {
+    transform: translateY(-5px);
+    background: transparent;
+    color: var(--main-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .contact-info {
+        flex-direction: column; /* Stack contact items vertically on tablets */
+        align-items: center; /* Center items horizontally */
+        gap: 30px; /* Adjust spacing between items */
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-info {
+        gap: 20px; /* Reduced spacing between items */
+    }
+
+    .contact-item i {
+        font-size: 30px; /* Reduced icon size for mobile devices */
+    }
+
+    .contact-item h2 {
+        font-size: 20px; /* Reduced font size */
+    }
+
+    .contact-item p {
+        font-size: 16px; /* Reduced font size */
+    }
+
+    .contact-form {
+        max-width: 90%; /* Adjust form width for smaller screens */
+        padding: 20px; /* Adjust padding */
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 12px; /* Adjust padding for smaller screens */
+    }
+
+    .contact-form button {
+        padding: 12px 28px; /* Adjust button padding */
+        font-size: 14px; /* Reduced font size */
+    }
+}
+
+    @media (max-width: 1850px){
+        header{
+            padding: 15px 8%;
+            transition: .2s;
+        }
+        section{
+            padding: 0.8%;
+            transition: .2s;
+        }
+        .share{
+            left: 8%;
+            transition: .2s;
+        }
+    }
+    @media (max-width: 1370px){
+        header{
+            padding: 15px 8%;
+            transition: .2s;
+        }
+        section{
+            padding: 0.4%;
+            transition: .2s;
+        }
+        .share{
+            left: 4%;
+            transition: .2s;
+        }
+        :root{
+            --big-font: 5.5rem;
+            --p-font:1rem;
+            transition: .2s;
+        }
+    }
+    @media (max-width: 1020px){
+       .navbar a{
+        margin: 0 15px;
+       }
+       :root{
+            --big-font: 5.5rem;
+            --p-font:1rem;
+            transition: .2s;
+        }
+    }
+    @media (max-width: 950px){
+        .share{
+            display: flex;
+        }
+        section{
+            padding: 70px 4%;
+        }
+        header{
+            padding:11px 4%;
+            background: #2d2d2d;
+        }
+        .home{
+            height:auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .home-text{
+            order:2;
+        }
+        .home-img{
+            margin: auto;
+            height: auto;
+            width: auto;
+        }
+        .home-img img{
+            max-width: 450px;
+            width: 100%;
+            height: auto;
+        }
+    }
+    @media (max-width: 850px){
+        .navbar{
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            padding: 40px 50px;
+            top:0;
+            right:0;
+            bottom:0;
+            left: 100%;
+            display: flex;
+            flex-direction: column;
+            background: #2d2d2d;
+            transition: all 0.4s ease-in-out;
+        }
+        .navbar a{
+            display: block;
+            color: #c3c3c3;
+            padding: 0px;
+            margin: 0px 0px 40px 0px;
+            font-size: 2rem;
+            font-weight: 400;
+        }
+        .navbar.open{
+            left: 0;
+        }
+    }
+    @media (max-width: 850px){
+        :root{
+            --big-font: 5.5rem;
+            --p-font:1rem;
+            transition: .2s;
+        }
+        .btn{
+            padding: 9px 25px;
+        }
+        .home-text h1{
+            font-size: 60px;
+        }
+        .home-text p{
+            line-height: 25px;
+        }
+        .two{
+            margin-left: 15px;
+        }
+        .share p{
+            font-size: 14px;
+        }
+        .share i{
+            margin: 0 4px;
+        }
+    }
+    @media (max-width: 570px){
+        header{
+            padding: 10px 4%;
+        }
+        .home{
+            padding-top: 50px;
+        }
+        .home-text h1{
+            font-size: 50px;
+        }
+        .home-text p{
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+        .btn{
+            padding: 9px 20px;
+        }
+        .two{
+            margin-left: 15px;
+        }
+        .share p{
+            font-size: 14px;
+        }
+        .share i{
+            height: 40px;
+            width: 40px;
+        }
+    }
+    
+</style>
+<body>
+    <header>
+        <a href="#" class="logo">The <span>Profile</span></a>
+
+        <div class="navbar">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#About">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#Skills">Skills</a></li>
+            <li><a href="#contacts">Contact</a></li>
+        </div>
+        <div class="menu-btn">
+            <span>INTRO</span>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+    <section>
+        <div class="home">
+            <div class="home-text">
+                <span>Web Developer</span>
+                <h1>G.Sai Teja Reddy</h1>
+                <p>Hi,</p>
+                <h4>Passionate Web Developer | Skilled Coder | Creative Graphic Designer</h4>
+                <p> With expertise in HTML, CSS, JavaScript, and Java, I bring innovative ideas to life on the web. My graphic design skills, using Adobe Photoshop and Illustrator, ensure visually appealing interfaces. I excel at solving complex coding problems and refining content to perfection.
+                    
+                    </p>
+               <div class="main-btn">
+                   <a href="#" class="btn">Download CV</a>
+                   <a href="#" class="btn two">Hire Me Now</a>
+               </div>
+            </div>
+            <div class="home-img">
+                <img src="sai17.png" alt="Profile Image">
+            </div>
+        </div>
+        <div class="share">
+            <p>Follow Me</p>
+            <div class="social">
+                <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+                <a href="#"><i class='bx bxl-twitter' ></i></a>
+                <a href="#"><i class='bx bxl-instagram-alt' ></i></a>
+                <a href="#"><i class='bx bxl-linkedin-square' ></i></a>
+            </div>
+        </div>
+    </section>
+     <section class = "about" id="About">
+        <div class="about-img">
+            <img src="sai04.png" alt="Profile Image">
+        </div>
+        <div class="about-text">
+            <h2>About<span>Me</span></h2>
+            <h4>Passionate Web Developer | Skilled Coder | Creative Graphic Designer | Meticulous Editor</h4>
+            <p>
+                As a Passionate Web Developer, I excel in HTML, CSS, JavaScript, and Java to create dynamic and responsive websites. My expertise transforms innovative ideas into functional and visually appealing web solutions.
+                
+                As a Skilled Coder, I thrive on solving complex challenges and writing efficient, clean code. Whether it's developing new features or optimizing existing functionality, I am committed to delivering high-quality, reliable code.
+                
+                With a background as a Creative Graphic Designer, I leverage Adobe Photoshop and Illustrator to produce visually stunning and user-friendly interfaces. My designs are not only aesthetically pleasing but also effective in communicating the intended message.
+                
+                My role as a Meticulous Editor ensures that every detail is refined to perfection. I focus on clarity and coherence, from proofreading to content refinement, striving for excellence in every aspect of my work.
+                
+                I blend these diverse skills to deliver exceptional digital experiences, from beautifully designed websites to efficient code solutions and polished content. I’m here to bring your vision to life with a combination of creativity, technical expertise, and attention to detail.</p>
+        </div>
+          <a href="#" class="btn-box">More About Me</a>
+     </section>
+     <section id="services">
+        <div class="container">
+            <h1 class="sub-title">My <span>Services</span></h1>
+            <div class="services-list">
+                <div class="service-item">
+                    <i class='bx bx-code' style='color:#00ceff'></i>
+                    <h2>Web Development</h2>
+                    <p>Expert in creating dynamic and responsive websites using **HTML, CSS, JavaScript**, and **Java**. I transform innovative ideas into functional and visually appealing web solutions. </p>
+                        <a href="#" class="read">Learn more</a>
+                </div>
+                <div class="service-item">
+                    <i class='bx bx-paint'></i>
+                    <h2>Graphic Design</h2>
+                    <p>Skilled in **Adobe Photoshop** and **Illustrator**, I design visually stunning and user-friendly interfaces. My designs are tailored to effectively communicate your message and enhance user experience. </p>
+                        <a href="#" class="read">Learn more</a>
+                </div>
+                <div class="service-item">
+                    <i class='bx bx-devices'></i>
+                    <h2>Java Development</h2>
+                    <p>Proficient in **Java**, I tackle complex coding challenges and build efficient applications. My expertise includes writing clean, reliable code and developing solutions that meet your specific needs. </p>
+                        <a href="#" class="read">Learn more</a>
+                </div>
+                
+            </div>
+        </div>
+        <section id="projects">
+            <div class="container">
+                <h1 class="sub-title">My <span>Projects</span></h1>
+                <div class="projects-list">
+                    <div class="project-item">
+                        <img src="Screenshot (534).png" alt="Project 1">
+                        <h3>The Farm Agriculture</h3>
+                        <p>Smart Solutions for Smart Farms</p>
+                        <a href="home.html" class="read">Learn More</a>
+                    </div>
+                    <div class="project-item">
+                        <img src="Screenshot (535).png" alt="Project 2">
+                        <h3>POAQUA ORGANICS</h3>
+                        <p>An Organic Products</p>
+                        <a href="project2-details.html" class="read">Learn More</a>
+                    </div>
+                    <div class="project-item">
+                        <img src="Screenshot (536).png" alt="Project 3">
+                        <h3>Hotel GVR Grand</h3>
+                        <p>A Hotel Management Services</p>
+                        <a href="home1.html" class="read">Learn More</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    
+    <section>
+        <div class="container" id="Skills">
+            <h1 class="sub-title">My <span>Skills</span></h1>
+
+            <h2 class="heading1">Technical Skills</h2>
+        
+            <div class="technical-bars">
+                <div class="bar"><i style="color: #147bbc"class='bx bxl-html5'></i>
+                    <div class="info">
+                        <span>HTML</span>
+                    </div>
+                    <div class="progress-line html">
+                        <span></span>
+                    </div>
+                </div>
+        
+                <div class="bar"><i style="color: #b0bc1e"class='bx bxl-css3'></i>
+                    <div class="info">
+                        <span>CSS</span>
+                    </div>
+                    <div class="progress-line css">
+                        <span></span>
+                    </div>
+                </div>
+        
+                <div class="bar"><i style="color: #c32ec9"class='bx bxl-javascript' ></i>
+                    <div class="info">
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="progress-line javascript">
+                        <span></span>
+                    </div>
+                </div>
+        
+                <div class="bar"><i style="color: #D0A384"class='bx bxl-java' ></i>
+                    <div class="info">
+                        <span>JAVA</span>
+                    </div>
+                    <div class="progress-line java">
+                        <span></span>
+                    </div>
+                </div>
+        
+                <div class="bar"><i style="color: #69bcbc"class='bx bxl-react' ></i> 
+                    <div class="info">
+                        <span>React</span>
+                    </div>
+                    <div class="progress-line ml">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h2 class="heading">Professional Skills</h2>
+            <div class="radial-bars">
+                <div class="radial-bar">
+                    <svg viewBox="0 0 200 200">
+                        <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+                        <circle class="path path-1" cx="100" cy="100" r="80" stroke-dasharray="502" stroke-dashoffset="0"></circle>
+                    </svg>
+                    <div class="percentage">90%</div>
+                    <div class="text">Creativity</div>
+                </div>
+                
+                <div class="radial-bar">
+                    <svg viewBox="0 0 200 200">
+                        <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+                        <circle class="path path-2" cx="100" cy="100" r="80" stroke-dasharray="502" stroke-dashoffset="20"></circle>
+                    </svg>
+                    <div class="percentage">65%</div>
+                    <div class="text">Communication</div>
+                </div>
+                <div class="radial-bar">
+                    <svg viewBox="0 0 200 200">
+                        <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+                        <circle class="path path-2" cx="100" cy="100" r="80" stroke-dasharray="502" stroke-dashoffset="20"></circle>
+                    </svg>
+                    <div class="percentage">80%</div>
+                    <div class="text">Problem Sloving</div>
+                </div>
+                <div class="radial-bar">
+                    <svg viewBox="0 0 200 200">
+                        <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+                        <circle class="path path-2" cx="100" cy="100" r="80" stroke-dasharray="502" stroke-dashoffset="20"></circle>
+                    </svg>
+                    <div class="percentage">85%</div>
+                    <div class="text">TeamWork</div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+    <section id="contacts">
+        <div class="container">
+            <h1 class="sub-title">Contact <span>Me</span></h1>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class='bx bx-envelope'></i>
+                    <h2>Email</h2>
+                    <p><a href="mailto:email@example.com">email@example.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class='bx bx-phone'></i>
+                    <h2>Phone</h2>
+                    <p><a href="tel:+1234567890">+123 456 7890</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class='bx bx-map'></i>
+                    <h2>Location</h2>
+                    <p>City, Country</p>
+                </div>
+            </div>
+            <form action="#" class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+    // Handle menu toggle
+    let menu = document.querySelector('#menu-icon');
+    let navbar = document.querySelector('.navbar');
+
+    menu.onclick = () => {
+        menu.classList.toggle('bx-x');
+        navbar.classList.toggle('open');
+    };
+
+    // Initialize ScrollReveal
+    const sr = ScrollReveal({
+        distance: '40px',
+        duration: 2500,
+        reset: true
+    });
+
+    // Reveal animations
+    sr.reveal('.logo', { delay: 200, origin: 'left' });
+    sr.reveal('.navbar', { delay: 400, origin: 'top' });
+    sr.reveal('.home-text', { delay: 600, origin: 'right' });
+    sr.reveal('.home-img', { delay: 800, origin: 'left' });
+    sr.reveal('.home-text span', { delay: 600, origin: 'left' });
+    sr.reveal('.home-text h1', { delay: 800, origin: 'left' });
+    sr.reveal('.home-text p', { delay: 1000, origin: 'left' });
+    sr.reveal('.home-img', { delay: 1200, origin: 'right' });
+    sr.reveal('.main-btn', { delay: 1400, origin: 'bottom' });
+    sr.reveal('.share', { delay: 1600, origin: 'bottom' });
+    
+
+    // Reveal additional sections
+    sr.reveal('.about-text', { delay: 600, origin: 'left' });
+    sr.reveal('.about-img', { delay: 800, origin: 'top' });
+    sr.reveal('.btn-box', { delay: 1400, origin: 'bottom' });
+
+    // Reveal additional sections
+    sr.reveal('.sub-title', { delay: 600, origin: 'left' });
+    sr.reveal('.services-items', { delay: 800, origin: 'bottom' });
+    
+
+    // Reveal additional sections
+    sr.reveal('.about-text', { delay: 600, origin: 'left' });
+    sr.reveal('.about-img', { delay: 800, origin: 'top' });
+    sr.reveal('.btn-box', { delay: 1400, origin: 'bottom' });
+
+    // Animate technical skills bars
+    document.querySelectorAll(".technical-bars .progress-line").forEach(function (line) {
+        let percent = line.getAttribute("data-percent");
+        line.querySelector("span").style.width = percent + "%";
+    });
+
+    // Animate radial progress bars
+    document.querySelectorAll(".radial-bar .path").forEach(function (path) {
+        let radius = path.r.baseVal.value;
+        let circumference = 2 * Math.PI * radius;
+        let offset = circumference - (path.dataset.percent / 100) * circumference;
+        path.style.strokeDashoffset = offset;
+    });
+</script>
+
+</body>
+</html>
